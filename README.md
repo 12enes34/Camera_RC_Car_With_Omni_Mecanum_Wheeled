@@ -1,5 +1,8 @@
 # README in Two Languages: Rc Car With Mecanium Wheels And Glove Conrtolled
 
+![Car](https://github.com/12enes34/omniProject-ezgif.com-video-to-gif-converter.gif)
+
+
 - [Türkçe](#turkce-bolum)
 - [English](#english-section)
 
