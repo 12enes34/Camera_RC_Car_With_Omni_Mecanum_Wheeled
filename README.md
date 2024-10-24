@@ -29,6 +29,7 @@ Bu projeyi çalıştırmak için aşağıdaki donanım ve yazılım gereksinimle
 
 ### Donanım:
 - Omni tekerlekli araç platformu
+- 4 adet 6V dc motor
 - [ESP32-S3 mini](https://www.espressif.com/en/products/socs/esp32-s3)
 - [ESP8266](https://www.espressif.com/en/products/socs/esp8266)(Elimde üzerinde oled ekranlı versiyonu vardı onu kullandım)
 - ADXL345 ivmeölçer
@@ -61,6 +62,7 @@ Bu projeyi çalıştırmak için aşağıdaki donanım ve yazılım gereksinimle
 | Behind_Right_in3 | 12             |
 | Behind_Right_in4 | 11             |
 
+Motor sürücülerin + ve - girişlerine 9v - 12V arası bir batarya bağlanmalıdır.
 
 - **ESP8266** pinlerine I2C üzerinden ivmeölçer bağlanmalıdır.
 
@@ -75,6 +77,7 @@ Bu projeyi çalıştırmak için aşağıdaki donanım ve yazılım gereksinimle
 | SCL                 | 12          |
 | SDA                 | 14          |
 
+- 6V dc motorlar yerleştirilir
 - Araç gövdesine uygun omni tekerlekler yerleştirilir.
 
 ### Yazılım Adımları:
@@ -112,6 +115,8 @@ Artık hazırsınız.
 | Sol sabit sağa        | v |
 | Sol sabit sola        | c |
 
+Not eldiven ile kontrolde UDP önerilir
+Eldivenin baglanması için en az 10 sn eldiveni yere paralel sabit tutmanız tavsiye edilir.
    
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
@@ -137,6 +142,7 @@ To run this project, the following hardware and software requirements must be me
 
 ### Hardware:
 - Omni wheeled vehicle platform
+- 4 pcs 6V dc motor
 - [ESP32-S3 mini](https://www.espressif.com/en/products/socs/esp32-s3 )
 - [ESP8266](https://www.espressif.com/en/products/socs/esp8266 )(I had an oled screen version on it, I used it)
 - ADXL345 accelerometer
@@ -169,6 +175,7 @@ To run this project, the following hardware and software requirements must be me
 | Behind_Right_in3   | 12|
 | Behind_Right_in4   | 11|
 
+A battery between 9 Dec- 12 V must be connected to the + and - inputs of the motor drives.
 
 - **Accelerometer must be connected to ESP8266** pins via I2C.
 
@@ -219,3 +226,6 @@ You're ready now.
 | Right constant left         | x |
 | Left hard right             | v |
 | Left fixed left             | c |
+
+Note UDP is recommended for control with gloves
+It is recommended to keep the glove stationary parallel to the ground for at least 10 seconds to connect the glove.
