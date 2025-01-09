@@ -14,11 +14,12 @@ Bu proje, omni tekerlekler kullanarak hareket eden bir mobil robot geliştirme �
 
 ## Proje Özeti
 
-Omni tekerlekler, aracın herhangi bir yönde kolayca hareket etmesine olanak sağlar. Projede, [ESP32-S3 mini](https://www.espressif.com/en/products/socs/esp32-s3) mikrodenetleyici ve çeşitli sensörler (ADXL345 gibi) kullanılarak stabil hareket ve veri toplama işlemleri gerçekleştirilmiştir.
+Omni tekerlekler, aracın herhangi bir yönde kolayca hareket etmesine olanak sağlar. Projede, [ESP32-S3 mini](https://www.espressif.com/en/products/socs/esp32-s3) mikrodenetleyici ve çeşitli sensörler (ADXL345 gibi) kullanılarak stabil hareket ve veri toplama işlemleri gerçekleştirilmiştir.Aynı zamanda mobil uygulaması tasarlanmış olup aracın mobilden kontrol edilmeside sağlanmıştır.
 
 ### Özellikler:
 - **Çok yönlü hareket**: 360 derece dönme, yan hareketler, ileri ve geri.
 - **Joystick ile kontrol**: Kolay ve hassas yönlendirme.
+- **Mobil ile kontrol**: Pratik kullanım.
 - **Motor kontrol**: ADXL345 sensörü ile hareket doğrultusunda hassas ayarlamalar.
 - **Wi-Fi bağlantısı**: ESP32 üzerinden kablosuz kontrol.
 - **Gerçek zamanlı veri izleme**: Sensör verilerinin anlık takibi.
@@ -36,11 +37,13 @@ Bu projeyi çalıştırmak için aşağıdaki donanım ve yazılım gereksinimle
 - Motor sürücüleri
 - 12V-9V batarya
 - Joystick modülü (opsiyonel)
+- Hotspot özelliği bulunan bir telefon
 
 ### Yazılım:
 - Python 3.x
 - Arduino IDE (ESP32 kütüphaneleri)
 - MicroPython
+- Unity C#
 
 ## Kurulum
 
@@ -88,9 +91,18 @@ Motor sürücülerin + ve - girişlerine 9v - 12V arası bir batarya bağlanmal�
 5. TCP ile kurmak istiyorsanız Glove_Control/TCP/ klasörü altındaki dosyayı esp8266 ya yükleyin<br>
    UDP ile kurmak istiyorsanız Glove_Control/UDP/ klasörü altındaki dosyayı esp8266 ya yükleyin
 6. Pc üzerinden kontrol etmek istiyorsanız Pc nizin hotspotunu açın ve eps32 nin kodlarının içinde belirlediğiniz Wifi adını ve şifresini girin sonra idenizden UDP için Pc_Control/PcControllerEsp32S3UDP.py , TCP için PcControllEsp32S3TCP.py dosyasını açın ve esp32'nizin ip numarasını değiştirip çalıştırın.
+7. Mobil üzerinden kontrol etmek istiyorsanız Omni Car Controller mobil app'i telefonunuza kurun Hotspotunuzu açın ve aracın üzerinde mavi yeşil yanan ledin sabit mavi yanmasını bekleyin.Uygulamayı açdıktan sonra en üst orta konumda bulunan IP kısmına esp32s3 ' ün IP 'sini yazın, en üst sol köşeden maksimum hızı ayarlayabilirsiniz(varsayılan hız 155).
 NOT:Varsayılan Wifi:Tulpar Şifre:12345687
 
+
 Artık hazırsınız.
+
+### Mobil Kullanım Adımları:
+Mobil applikasyon üzerindeki joystick ile aracı ileri geri ve kendi etrafında hareket ettirebilirsiniz.
+Joystick üzerinde bulunan sağa ve sola olan oklar ile de aracın ok yönünde yengeç yürüyüşü yapmasını sağlayabilirsiniz.
+Sağ tarafda bulunan yönlendirme okları ile de okun yönüne göre çapraz yengeç yürüyüşü gerçekleştirebilirsiniz.
+Sağ tarafda bulunan ses butonu ile de aracın melodi çalmasını sağlayabilirsiniz.
+Sol üst tarafda bulunan Max Hız değişkenine 50-255 arasında bir değer girerek aracın maximum hızını belirleyebilirsiniz.
 
 ### Kullanım Adımları:
 
@@ -117,6 +129,7 @@ Artık hazırsınız.
 
 Not eldiven ile kontrolde UDP önerilir
 Eldivenin baglanması için en az 10 sn eldiveni yere paralel sabit tutmanız tavsiye edilir.
+
    
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
@@ -127,11 +140,12 @@ This project focuses on the development of a mobile robot that moves using omni 
 
 ## Project Summary
 
-Omni wheels allow the vehicle to move easily in any direction. In the project, [ESP32-S3 mini](https://www.espressif.com/en/products/socs/esp32-s3 ) stable motion and data acquisition operations were performed using a microcontroller and various sensors (such as the ADXL345).
+Omni wheels allow the vehicle to move easily in any direction. In the project, [ESP32-S3 mini](https://www.espressif.com/en/products/socs/esp32-s3 ) stable motion and data acquisition operations were performed using a microcontroller and various sensors (such as the ADXL345).At the same time, a mobile application has been designed and the vehicle can be controlled from a mobile device.
 
 ### Features:
 -**Multi-directional movement**: 360 degree rotation, side movements, forward and backward.
 - **Control by joystick**: Easy and precise orientation.
+- **Control via mobile**: Practical use.
 - **Motor control**: Precise adjustments in the direction of movement with the ADXL345 sensor.
 - **Wi-Fi connection**: Wireless control via ESP32.
 - **Real-time data monitoring**: Instant tracking of sensor data.
@@ -149,6 +163,7 @@ To run this project, the following hardware and software requirements must be me
 - Engine drivers
 - 12V-9V battery
 - Joystick module (optional)
+- A phone with hotspot feature
 
 ### Software:
 - Python 3.x
@@ -200,9 +215,17 @@ A battery between 9 Dec- 12 V must be connected to the + and - inputs of the mot
 5. If you want to install it with TCP, upload the file under the Glove_Control/TCP/ folder to esp8266<br>
    If you want to install it with UDP, upload the file under the Glove_Control/UDP/ folder to esp8266
 6. If you want to control it via a PC, open your PC's hotspot and enter the Wifi name and password that you set in the eps32 codes, and then use your ID for UDP Pc_Control/PcControllerEsp32S3UDP.py , For TCP PcControllEsp32S3TCP.py open the file and change the ip number of your esp32 and run it.
+7. If you want to control it via mobile, install the Omni Car Controller mobile app on your phone. Turn on your hotspot and wait for the blue-green led on the vehicle to turn solid blue. After opening the application, write the IP of the esp32s3 in the IP section at the top middle position, at the top You can set the maximum speed from the left corner (default speed is 155).
 NOTE: Default Wifi: Tulpar Password: 12345687
 
 You're ready now.
+
+### Mobile Usage Steps:
+You can move the vehicle back and forth and around itself with the joystick on the mobile application.
+You can also make the vehicle crab walk in the direction of the arrow with the right and left arrows on the joystick.
+With the direction arrows on the right, you can perform a diagonal crab walk according to the direction of the arrow.
+You can also make the vehicle play a melody with the volume button on the right side.
+You can determine the maximum speed of the vehicle by entering a value between 50-255 in the Max Speed ​​variable on the top left.
 
 ### Steps of Use:
 
